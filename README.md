@@ -79,7 +79,7 @@ $$\Xi(t) = \exp(-\delta\mathcal{F}^*) - 1$$
 
 For $|\delta\mathcal{F}^*| \ll 1$ (quasi-static sessions or any individual step of moderate size):
 
-$$\Xi(t) = -\delta\mathcal{F}^*(X_t) + O(\delta\mathcal{F}^{*2})$$
+$$\Xi(t) = -\delta\mathcal{F}^*(X_t) + O\!\left((\delta\mathcal{F}^*)^2\right)$$
 
 The exact form for all step sizes:
 
@@ -280,7 +280,7 @@ The FORGE identity $\Xi(t) = -\delta\mathcal{F}^*$ means the manifold has a fibe
 
 ### 6.3 The Expressive Manifold as the Physical Space
 
-The Riemannian manifold $\mathcal{E}$ of all possible marks is the physical space in which the FORGE trajectory lives. Its parameters $(τ, λ, θ, w, c, \ell)$ — register, scale, orientation, weight, chromatic position, location — are the coordinates. The metric $g_\mathcal{E}$ determined by human perceptual sensitivity gives the correct distance between marks.
+The Riemannian manifold $\mathcal{E}$ of all possible marks is the physical space in which the FORGE trajectory lives. Its parameters $(\tau, \lambda, \theta, w, c, \ell)$ — register, scale, orientation, weight, chromatic position, location — are the coordinates. The metric $g_\mathcal{E}$ determined by human perceptual sensitivity gives the correct distance between marks.
 
 The register $\tau$ is the single topologically discontinuous parameter. Layer 3 transitions on the FORGE manifold correspond exactly to crossing the topological ridges between adjacent registers in $\mathcal{E}$ — the finite-cost barriers $C(\tau_i \to \tau_{i+1})$ that agents can cross only when the within-register free energy exceeds the crossing cost.
 
@@ -376,9 +376,9 @@ The FORGE workflow is the NARC protocol augmented by the free energy reconstruct
 
 **Step 3** — Compute $\hat{\Xi}(t)$ series: $\hat{\Xi}(t) = [\mathcal{Z}(X_t;\hat{\beta}) - \mathcal{Z}(X_{t-1};\hat{\beta})] / \mathcal{Z}(X_{t-1};\hat{\beta})$ at every step.
 
-**Step 4** — Apply the FORGE identity: $\hat{\delta\mathcal{F}}^*(t) = -\log(1 + \hat{\Xi}(t))$ at every step.
+**Step 4** — Apply the FORGE identity: $\delta\hat{\mathcal{F}}^*(t) = -\log(1 + \hat{\Xi}(t))$ at every step.
 
-**Step 5** — Reconstruct the free energy trajectory: $\hat{\mathcal{F}}^*(X_t) = \hat{\mathcal{F}}^*(X_0) + \sum_{s=1}^t \hat{\delta\mathcal{F}}^*(s)$.
+**Step 5** — Reconstruct the free energy trajectory: $\hat{\mathcal{F}}^*(X_t) = \hat{\mathcal{F}}^*(X_0) + \sum_{s=1}^t \delta\hat{\mathcal{F}}^*(s)$.
 
 **Step 6** — Read the session diagnostics from the joint $(\hat{\Xi}(t), \hat{\mathcal{F}}^*(X_t))$ plot:
 - Sawtooth $\hat{\Xi}$ with monotone-rising $\hat{\mathcal{F}}^*$ interrupted by drops: φ-stable register sequence
@@ -425,7 +425,7 @@ Substituting VEGA's identity into NARC's parameter produces the FORGE identity: 
 
 Every mark any agent places does one of exactly three things to the collective's minimum achievable free energy: increases it (the ordinary condition — the local ratchet operating), decreases it (the rare event — a new register opening, a phase transition, a model depth expansion), or leaves it unchanged (the quasi-static moment — the Gibbs approximation exact, the collective at momentary inference equilibrium). These three conditions, previously requiring two frameworks to state, are now three values of one scalar with one thermodynamic meaning.
 
-The practical consequence is that the inferential workflow collapses. You estimate $\hat{\beta}$ by pseudolikelihood. You compute $\hat{\Xi}(t)$ at every step. You apply the FORGE transformation to get $\hat{\delta\mathcal{F}}^*$. You reconstruct the full free energy trajectory from its sum. Everything that NARC provides about the non-equilibrium dynamics, and everything that VEGA provides about the free energy dynamics, is now available from one pass over the same data.
+The practical consequence is that the inferential workflow collapses. You estimate $\hat{\beta}$ by pseudolikelihood. You compute $\hat{\Xi}(t)$ at every step. You apply the FORGE transformation to get $\delta\hat{\mathcal{F}}^*$. You reconstruct the full free energy trajectory from its sum. Everything that NARC provides about the non-equilibrium dynamics, and everything that VEGA provides about the free energy dynamics, is now available from one pass over the same data.
 
 The $\Xi(t)$ time series was always carrying the free energy information. FORGE states it.
 
